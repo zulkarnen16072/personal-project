@@ -12,4 +12,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  hide: boolean = true;
+  user: any = {};
+
+
+  register(user) {
+    
+  }
+
 }

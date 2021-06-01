@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
 import { MaterialDesign } from 'src/Material/material';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     MaterialDesign,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

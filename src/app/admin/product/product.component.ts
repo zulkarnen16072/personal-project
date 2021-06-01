@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from 'src/app/services/api.service';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
@@ -16,10 +17,14 @@ export class ProductComponent implements OnInit {
 
 
   constructor( 
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public api: ApiService
    ) { }
 
   ngOnInit(): void {
+
+    console.log(this.api.get());
+
     this.getProducts();
   }
 
