@@ -6,8 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './public/home/home.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -23,13 +28,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren:()=>import('./public/public.module').then(mod=>mod.PublicModule)
-  },
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/home' 
   }
-  
 ]
 
 @NgModule({

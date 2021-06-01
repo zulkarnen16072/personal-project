@@ -7,9 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  juduls: any = [];
+
+  constructor(  ) { }
 
   ngOnInit(): void {
+
+    this.getJudul();
+    
+
   }
+
+  title: String = 'Product';
+
+  getJudul() {
+    this.juduls = [
+    {
+      card : 'Hai'
+    },
+    {
+      card : 'Hai'
+    },
+    {
+      card : 'Hai'
+    }
+    ]
+  }
+
+ 
+
 
 }

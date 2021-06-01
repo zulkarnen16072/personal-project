@@ -1,2 +1,48 @@
-    <p>admin works!</p>
-    <router-outlet></router-outlet>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+
+    
+    <div class="uk-width-expand"></div>
+
+    <button mat-icon-button class="example-icon favorite-icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon">
+      <mat-icon>share</mat-icon>
+    </button>
+    
+  </mat-toolbar>
+
+  <mat-sidenav>
+        <mat-sidenav #sidenav mode="{{mode}}" [position]="'start'" opened class="sidenav-left"
+        [fixedInViewport]="true" [fixedTopGap]="65"
+        [fixedBottomGap]="0">
+
+        <mat-nav-list>
+        <mat-list-item routerLink='/admin/dashboard'>
+            <mat-icon matListIcon>dashboard</mat-icon>
+            <h3 matLine>Dashboard</h3>
+        </mat-list-item>
+        <mat-list-item routerLink='/admin/product'>
+            <mat-icon matListIcon>local_mall</mat-icon>
+            <h3 matLine>Product</h3>
+        </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    
+    <mat-sidenav #sidenav mode={{mode}} [position]="'end'"  class="example-sidenav"
+    [fixedInViewport]="true" [fixedTopGap]="60"
+    [fixedBottomGap]="0">
+    </mat-sidenav>
+
+        <!--sidenav content-->
+        <mat-sidenav-content style="padding: 20px; background-color: #ccc;">
+            <!--halaman-halaman tampil disini-->
+                <router-outlet></router-outlet>
+        </mat-sidenav-content>
+            <!--end sidenav content-->
+  
+  </mat-sidenav>
