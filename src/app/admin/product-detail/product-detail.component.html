@@ -1,0 +1,29 @@
+<h3 mat-dialog-title>
+    Detail Product
+</h3>
+<div mat-dialog-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Nama</mat-label>
+        <input matInput [(ngModel)]=data.name>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Kategori</mat-label>
+        <input matInput [(ngModel)]=data.kategori>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Size</mat-label>
+        <input matInput [(ngModel)]=data.size>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]=data.desc>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Harga</mat-label>
+        <input type="number" matInput [(ngModel)]=data.price>
+    </mat-form-field>
+</div>
+<div mat-dialog-action align="end">
+    <button mat-button mat-dialog-close>Batal</button>
+    <button mat-flat-button (click)="saveData()">Simpan</button>
+</div>

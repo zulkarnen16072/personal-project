@@ -1,20 +1,46 @@
-<div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
-    <div>
-        <div class="uk-card uk-card-default uk-card-body">
-            <h3 class="uk-card-title">Default</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ title }}</mat-card-title>
+    </mat-card-header>
+
+    <!-- Content -->
+    <mat-card-content>
+        <div class="uk-flex">
+            <span class="uk-width-expand"></span>
+            <button mat-flat-button matTooltip="Add Product" color="primary" (click)="productDetail({},-1)"><mat-icon>add</mat-icon></button>
         </div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-primary uk-card-body">
-            <h3 class="uk-card-title">Primary</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-secondary uk-card-body">
-            <h3 class="uk-card-title">Secondary</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-    </div>
-</div>
+   
+
+    <!-- Table -->
+    <table class="uk-table uk-table-middle uk-table-divide">
+        <thead>
+            <th></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Kategori</th>
+            <th>Size</th>
+            <th>Desc</th>
+            <th align="right">#</th>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let product of products; let idx = index">
+                <td>{{idx+1}}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.kategori }}</td>
+                <td>{{ product.size }}</td>
+                <td>{{ product.desc }}</td>              
+                <td align="right">
+                    <button mat-button color="primary">Upload</button>
+                    <button mat-button color="primary" (click)="productDetail(product, idx)">Edit</button>
+                    <button mat-button color="warn" (click)="deleteProduct(idx)">Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <!-- End Table -->
+    </mat-card-content>
+    <!-- End Content -->
+</mat-card>

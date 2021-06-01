@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
+
+  products: any = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    this.getProduct();
   }
+
+  getProduct()
+  {
+    this.products = [
+      {
+        name: 'Apha'
+      },
+      {
+        name: 'Beta'
+      }
+    ]
+  };
 
 }

@@ -7,9 +7,15 @@ import { ShopComponent } from './shop/shop.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      {
+        path: 'shop',
+        component: ShopComponent
+      }
+    ]
   }
+  
 ]
 
 @NgModule({

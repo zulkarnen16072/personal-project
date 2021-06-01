@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="uk-flex uk-flex-middle uk-flex-center uk-height-viewport uk-card-default"
+  style="
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+  ">
+  <mat-card class="uk-width-1-3@m uk-width-1-3@s">
+    <div class="uk-flex uk-flex-center uk-margin-medium-bottom heading">
+      <h3>LOGIN</h3>
+    </div>
+
+    <mat-card-content color="primary">
+      <mat-form-field class="uk-width-1-1">
+          
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Your E-mail or Username">
+      </mat-form-field>
+      <mat-form-field class="uk-width-1-1">
+        <mat-label>Password</mat-label>
+        <input
+        [type]=" hide ? 'password' : 'text' " matInput placeholder="Your password">
+          <button mat-icon-button matSuffix (click)=" hide = !hide ">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+
+      </mat-form-field>
+      <div class="uk-flex uk-flex-right ">
+        <div class="uk-width-expand">
+          <button mat-button routerLink="/register">Create Account</button>
+          <button mat-button [disabled]="true" routerLink="/forgot">Forgot</button>
+        </div>
+        <button mat-stroked-button color=#000>
+          LOGIN
+        </button>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

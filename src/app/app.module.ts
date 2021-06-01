@@ -7,6 +7,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './public/home/home.component';
+import { MaterialDesign } from 'src/Material/material';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -39,7 +41,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MaterialDesign,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

@@ -1,5 +1,5 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" (click)="sidenav.toggle()">
+<mat-toolbar color="primary" class="example-header">
+    <button mat-icon-button class="example-icon uk-margin-medium-right" (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>My App</span>
@@ -16,7 +16,7 @@
     
   </mat-toolbar>
 
-  <mat-sidenav>
+  <mat-sidenav-container class="example-container">
         <mat-sidenav #sidenav mode="{{mode}}" [position]="'start'" opened class="sidenav-left"
         [fixedInViewport]="true" [fixedTopGap]="65"
         [fixedBottomGap]="0">
@@ -39,10 +39,10 @@
     </mat-sidenav>
 
         <!--sidenav content-->
-        <mat-sidenav-content style="padding: 20px; background-color: #ccc;">
+        <mat-sidenav-content style="padding: 20px; background-color: #fff;">
             <!--halaman-halaman tampil disini-->
                 <router-outlet></router-outlet>
         </mat-sidenav-content>
             <!--end sidenav content-->
   
-  </mat-sidenav>
+  </mat-sidenav-container>
