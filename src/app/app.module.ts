@@ -40,8 +40,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
-    AngularFireModule.initializeApp(environment.firebase)
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +48,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(routes)
   ],
   providers: [],
