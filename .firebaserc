@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "personal-project-tekweb": {
+      "hosting": {
+        "project-tekweb": [
+          "personal-project-tekweb"
+        ]
+      }
+    }
+  }
+}

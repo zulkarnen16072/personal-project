@@ -10,6 +10,8 @@ import { HomeComponent } from './public/home/home.component';
 import { MaterialDesign } from 'src/Material/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 const routes: Routes = [
   {
@@ -38,7 +40,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   imports: [
     BrowserModule,
