@@ -12,7 +12,18 @@ export const environment = {
     messagingSenderId: "1029326080042",
     appId: "1:1029326080042:web:edbe2eb5c5d6da01ac1b53"
   }
+
+  // firebase : {
+  //   apiKey: "AIzaSyBcgjBqwWn8hMYINsiANPwb8itkpK6Qzs0",
+  //   authDomain: "katalog-buku-4fd7c.firebaseapp.com",
+  //   projectId: "katalog-buku-4fd7c",
+  //   storageBucket: "katalog-buku-4fd7c.appspot.com",
+  //   messagingSenderId: "221486665324",
+  //   appId: "1:221486665324:web:216c417f4937073d3a1249"
+  // }
+
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

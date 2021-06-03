@@ -22,7 +22,7 @@
         <div class="uk-flex uk-flex-right">
             <div class="uk-width-expand">
                 <button mat-button routerLink="/login">Have an Account</button>
-                <button mat-raised-button color="primary" (click)="register(user)">Register</button>
+                <button mat-raised-button color="primary" (click)="register(user)" [disabled]="loading">{{ loading ? 'Please Wait' : 'Register' }}</button>
             </div>
         </div>
 

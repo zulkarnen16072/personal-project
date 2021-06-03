@@ -29,7 +29,8 @@ const routes: Routes = [
   declarations: [
     AdminComponent,
     DashboardComponent, 
-    ProductComponent, ProductDetailComponent
+    ProductComponent,
+    ProductDetailComponent
 
   ],
   imports: [

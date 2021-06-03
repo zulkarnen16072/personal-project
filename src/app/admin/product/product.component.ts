@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api.service';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
@@ -15,10 +17,14 @@ export class ProductComponent implements OnInit {
 
   products: any = [];
 
+  userData: any= {};
+
 
   constructor( 
     public dialog: MatDialog,
-    public api: ApiService
+    public api: ApiService,
+    public db: AngularFirestore, 
+    public auth: AngularFireAuth
    ) { }
 
   ngOnInit(): void {
@@ -26,6 +32,13 @@ export class ProductComponent implements OnInit {
     console.log(this.api.get());
 
     this.getProducts();
+
+    this.auth.user.subscribe(res => {
+      this.userData = res;
+      this.getBooksFire();
+    })
+
+    
   }
 
   title: String = 'Product';
@@ -60,13 +73,17 @@ productDetail(data, idx)
 
 deleteProduct(idx) 
 {
-  var conf = confirm('Deletw Product? ');
+  var conf = confirm('Delete Product? ');
   if (conf) 
   {
     this.products.splice(idx, 1)
   }
 }
 
+getBooksFire() {
+  // get Data Using Firebase;
+  this.db.collection('books').get()
+}
 
  
 

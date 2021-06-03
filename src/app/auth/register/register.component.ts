@@ -24,10 +24,13 @@ export class RegisterComponent implements OnInit {
 
   register(user) {
     this.loading = true;
-    this.auth.createUserWithEmailAndPassword(user.email, user.password).then(res => {
+    this.auth.createUserWithEmailAndPassword(this.user.email, this.user.password).then(res => {
       this.loading = false;
       alert('Berhasil');
       this.router.navigate(['/login'])
+    }).catch(error => {
+      this.loading = false;
+      alert("Ada Masalah !");
     })
   }
 
