@@ -1,3 +1,4 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -16,7 +17,6 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 export class ProductComponent implements OnInit {
 
   products: any = [];
-
   userData: any= {};
   isLoading: boolean;
 
@@ -29,23 +29,16 @@ export class ProductComponent implements OnInit {
    ) { }
 
   ngOnInit(): void {
-
+    this.test();
+    // this.simpleQuery();
     // console.log(this.api.get());
-
     // this.getProducts();
-    
-
-    this.auth.user.subscribe(res => {
+      this.auth.user.subscribe(res => {
       this.userData = res;
       console.log("User.auth.uid: From product.ts UserData.UID : " + this.userData.uid)
-      this.getBooksFire();
-      // this.test();
-      
+      // this.getBooksFire();
     })
-    
-
-    
-  }
+  } // edn onInit
 
   title: String = 'Product';
 
@@ -104,11 +97,28 @@ getBooksFire() {
 
 test()
 {
-  this.db.collection('test').get().subscribe(res => {
-    console.log("this Test" + res);
+  this.db.collection("test").valueChanges({idField : 'id'}).subscribe(res => {
+    console.log("Res: " + res[0].id);
     this.products = res;
-  })
+  }, error => {
+    console.log(error)
+  });
+
 }
+
+
+  simpleQuery()
+  {
+    this.db.collection('test', ref => 
+      ref.where('kategori', '==', 'tees')).valueChanges({idField : 'id'}).subscribe(res => { 
+        console.log(res[0].id);
+        this.products = res;
+      }, error => {
+        console.log("Error: " + error);
+      })
+  }
+  
+
 
  
 }

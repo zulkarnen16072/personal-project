@@ -11,6 +11,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class ProductDetailComponent implements OnInit {
 
   userData: any = {};
+  datas: any = [];
 
   constructor(
     public dialogRef:MatDialogRef<ProductDetailComponent>,
@@ -23,6 +24,18 @@ export class ProductDetailComponent implements OnInit {
     this.auth.user.subscribe(res => {
       this.userData = res;
     })
+
+    for (var i in this.data)
+    {
+      this.datas = i;
+      console.log(i)
+    }
+
+    
+   
+
+    console.log("ini adalah Data: " + this.datas);
+
   }
 
   saveData() {
@@ -30,18 +43,28 @@ export class ProductDetailComponent implements OnInit {
     
   }
 
-  save() {
-    if (this.data.id == undefined) {
-    let doc = new Date().getTime().toString();
-    this.data.uid = this.userData.uid;
-    this.db.collection('test').doc(doc).set(this.data).then(res => {
-      alert("Document successfully written!");
-      this.dialogRef.close(this.data);
-    }).catch(error => {
-      console.log(error);
-      alert("Error" + error)
-    })
-  }
+  save()
+  {
+    if (this.data.id == undefined)
+    {
+      let doc = new Date().getTime().toString();
+      this.data.uid = this.userData.uid;
+      this.db.collection('test').doc(doc).set(this.data).then(res => {
+        alert("Document successfully written!");
+        this.dialogRef.close(this.data);
+      }).catch(error => {
+        console.log(error);
+        alert("Error" + error)
+      })
+   } else
+   {
+     this.db.collection('test').doc(this.data.id).update(this.data).then(res => {
+       alert("Data has Modified !")
+       this.dialogRef.close(this.data);
+     }).catch(error => {
+       alert("Tidak dapat update Data " + error)
+     })
+   }
   }
 
 }
