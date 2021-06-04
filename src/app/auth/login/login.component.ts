@@ -20,7 +20,12 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.test();
+    this.auth.user.subscribe(res => {
+      console.log("This User.Uid on Login Comp: " + res.uid)
+    }, error => {
+      console.log("Error From auth.user " + error.message() )
+    });
+
   }
 
   login()
@@ -35,9 +40,6 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  test() {
-    let doc = new Date().getTime().toString();
-    console.log("ini adalah doc" + doc)
-  }
+
 
 }

@@ -22,7 +22,6 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.auth.user.subscribe(res => {
       this.userData = res;
-      console.log("This.user Data " + this.userData.uid)
     })
   }
 
@@ -34,6 +33,7 @@ export class ProductDetailComponent implements OnInit {
   save() {
     if (this.data.id == undefined) {
     let doc = new Date().getTime().toString();
+    this.data.uid = this.userData.uid;
     this.db.collection('test').doc(doc).set(this.data).then(res => {
       alert("Document successfully written!");
       this.dialogRef.close(this.data);

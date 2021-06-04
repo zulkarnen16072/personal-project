@@ -2,23 +2,35 @@
     Detail Product
 </h3>
 <div mat-dialog-content>
-    <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Nama</mat-label>
         <input matInput [(ngModel)]=data.name>
     </mat-form-field>
-    <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Kategori</mat-label>
-        <input matInput [(ngModel)]=data.kategori>
-    </mat-form-field>
-    <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Size</mat-label>
-        <input matInput [(ngModel)]=data.size>
-    </mat-form-field>
-    <mat-form-field appearance="outline" style="width: 100%;">
+    <!-- <mat-form-field appearance="fill" style="width: 100%;"> -->
+        <div style="margin-bottom: 25px; width: 100%;" >
+            <mat-label>Category</mat-label>
+            <mat-radio-group [(ngModel)]="data.kategori">
+              <mat-radio-button value="tees">T-Shirt</mat-radio-button>
+              <mat-radio-button value="pants">Pants</mat-radio-button>
+              <mat-radio-button value="hoodie">Hoodie</mat-radio-button>
+            </mat-radio-group>
+          </div>
+    <!-- </mat-form-field> -->
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Select</mat-label>
+        <mat-select [(ngModel)]="data.size">
+          <mat-option value="S">S</mat-option>
+          <mat-option value="M">M</mat-option>
+          <mat-option value="L">L</mat-option>
+          <mat-option value="XL">XL</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Description</mat-label>
-        <input matInput [(ngModel)]=data.desc>
+        <textarea matInput [(ngModel)]=data.desc></textarea>
     </mat-form-field>
-    <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Harga</mat-label>
         <input type="number" matInput [(ngModel)]=data.price>
     </mat-form-field>

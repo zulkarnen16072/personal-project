@@ -30,6 +30,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
+
 export const MaterialDesign=[
     MatCheckboxModule,
     MatCheckboxModule,
@@ -62,4 +63,5 @@ export const MaterialDesign=[
     MatTableModule,
     MatSortModule,
     MatPaginatorModule
+ 
 ]

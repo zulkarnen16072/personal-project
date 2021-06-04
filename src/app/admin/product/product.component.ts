@@ -18,6 +18,7 @@ export class ProductComponent implements OnInit {
   products: any = [];
 
   userData: any= {};
+  isLoading: boolean;
 
 
   constructor( 
@@ -29,14 +30,19 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.api.get());
+    // console.log(this.api.get());
 
-    this.getProducts();
+    // this.getProducts();
+    
 
     this.auth.user.subscribe(res => {
       this.userData = res;
+      console.log("User.auth.uid: From product.ts UserData.UID : " + this.userData.uid)
       this.getBooksFire();
+      // this.test();
+      
     })
+    
 
     
   }
@@ -82,10 +88,27 @@ deleteProduct(idx)
 
 getBooksFire() {
   // get Data Using Firebase;
-  this.db.collection('books').get()
+  this.db.collection('test', ref => {
+    this.isLoading = true;
+    console.log("Loadings..." + this.userData.uid);
+    return ref.where('uid', '==', this.userData.uid);
+  }).valueChanges({idField : 'id' }).subscribe(res => {
+    alert("Berhasil");
+    this.products = res;
+    this.isLoading = false;
+  }, error => {
+    this.isLoading = false;
+    alert('Error not reach get products ' + error);    
+  })
+}
+
+test()
+{
+  this.db.collection('test').get().subscribe(res => {
+    console.log("this Test" + res);
+    this.products = res;
+  })
 }
 
  
-
-
 }
