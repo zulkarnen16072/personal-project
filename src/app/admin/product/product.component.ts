@@ -1,4 +1,3 @@
-import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -62,20 +61,22 @@ productDetail(data, idx)
   dialog.afterClosed().subscribe(res => {
     if (res) 
     {
-      // jika idx = -1 = add data
-      if (idx == -1 ) this.products.push(res);
-      // jika tidak, maka perbarui data
-      else this.products[idx] = res;
+      return
     }
   })
 } // end productDetail()
 
-deleteProduct(idx) 
+deleteProduct(id, idx) 
 {
   var conf = confirm('Delete Product? ');
   if (conf) 
   {
-    this.products.splice(idx, 1)
+    console.log(id)
+    this.db.collection("test").doc(id).delete().then(res => {
+      this.products.splice(idx, 1);
+    }).catch(res => {
+      alert("Tidak dapat Hapus")
+    })
   }
 }
 
@@ -98,9 +99,9 @@ getBooksFire() {
 test()
 {
   this.db.collection("test").valueChanges({idField : 'id'}).subscribe(res => {
-    console.log("Res: " + res[0].id);
+    console.log(res);
     this.products = res;
-  }, error => {
+    }, error => {
     console.log(error)
   });
 
@@ -118,6 +119,10 @@ test()
       })
   }
   
+  exportComponent()
+  {
+    return console.log("Test");
+  }
 
 
  

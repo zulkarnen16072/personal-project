@@ -23,19 +23,9 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.auth.user.subscribe(res => {
       this.userData = res;
+      console.log("onInit")
+      console.log(res)
     })
-
-    for (var i in this.data)
-    {
-      this.datas = i;
-      console.log(i)
-    }
-
-    
-   
-
-    console.log("ini adalah Data: " + this.datas);
-
   }
 
   saveData() {

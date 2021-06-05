@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   hide: boolean = true;
   user: any = {};
   loading: boolean;
+
+  public cekUser = this.auth.user;
   
   constructor(
     public router: Router,
@@ -20,8 +22,10 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.auth.user.subscribe(res => {
+    
+    this.cekUser.subscribe(res => {
       console.log("This User.Uid on Login Comp: " + res.uid)
+      console.log(this.user.uid)
     }, error => {
       console.log("Error From auth.user " + error.message() )
     });
@@ -32,7 +36,10 @@ export class LoginComponent implements OnInit {
   {
     this.loading = true;
     this.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(res => {
-      alert("Login Success !" + res);
+      alert("Login Success !");
+      this.cekUser.subscribe(user => {
+        localStorage.setItem("appToken", user.uid) // set app token to local storage
+      })
       this.router.navigate(['admin/dashboard']);
     }).catch(error => {
       this.loading = false;

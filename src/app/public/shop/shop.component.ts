@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-shop',
@@ -7,25 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
-
   products: any = [];
+  isUser: boolean;
+  
 
-  constructor() { }
+  constructor(
+    public service: ApiService
+    ) { }
 
+  
   ngOnInit(): void {
-    this.getProduct();
+    this.getData();
+    this.isUser = this.service.isAppToken();
+    console.log(this.isUser)
   }
 
-  getProduct()
-  {
-    this.products = [
-      {
-        name: 'Apha'
-      },
-      {
-        name: 'Beta'
-      }
-    ]
-  };
+  getData() {
+   this.service.get().subscribe(res => {
+     this.products = res;
+   });
+  }
+
+ 
 
 }

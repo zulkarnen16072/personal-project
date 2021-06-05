@@ -33,13 +33,13 @@
                 <td>{{idx+1}}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
-                <td>{{ product.kategori }}</td>
+                <td>{{ product.category }}</td>
                 <td>{{ product.size }}</td>
                 <td>{{ product.desc }}</td>              
                 <td align="right">
                     <button mat-button color="primary">Upload</button>
                     <button mat-button color="primary" (click)="productDetail(product, idx)">Edit</button>
-                    <button mat-button color="warn" (click)="deleteProduct(idx)">Hapus</button>
+                    <button mat-button color="warn" (click)="deleteProduct(product.id, idx)">Hapus</button>
                 </td>
             </tr>
         </tbody>

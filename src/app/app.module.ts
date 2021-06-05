@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { ApiService } from './services/api.service';
 
 const routes: Routes = [
   {
@@ -32,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren:()=>import('./public/public.module').then(mod=>mod.PublicModule)
+    loadChildren:()=>import('./public/public.module').then(mod => mod.PublicModule)
   }
 ]
 
@@ -51,7 +52,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
