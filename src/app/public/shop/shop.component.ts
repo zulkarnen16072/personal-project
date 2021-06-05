@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-shop',
@@ -8,12 +9,19 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ShopComponent implements OnInit {
 
+ 
+
+  isHome: boolean = false;
+
+
+  
   products: any = [];
   isUser: boolean;
   
 
   constructor(
-    public service: ApiService
+    public service: ApiService,
+    public home: HomeComponent
     ) { }
 
   
@@ -21,6 +29,7 @@ export class ShopComponent implements OnInit {
     this.getData();
     this.isUser = this.service.isAppToken();
     console.log(this.isUser)
+    this.home.isHome = false;
   }
 
   getData() {

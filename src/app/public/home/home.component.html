@@ -1,13 +1,33 @@
-<nav>
-    <mat-toolbar color="primary" class="example-header" uk-navbar>
-        <span class="uk-margin-large-left">My App</span>
+
+<mat-toolbar color="primary" class="example-header" uk-navbar>
+        <span class="uk-margin-large-left">Test</span>
         <div class="uk-width-expand"></div>
         <button mat-button class="example-icon uk-margin-large-right" routerLink="/home/shop">Shop</button>
         <button mat-icon-button class="example-icon uk-margin-large-right">
             <mat-icon class="material-icons-outlined">person_outline</mat-icon>
             <span class="uk-margin-small-left" (click)="sign()">{{ isUser ? 'Sign Out' : "Sign In" }}</span>
         </button>            
-
     </mat-toolbar>
-</nav>
+
+    <div *ngIf="isHome" style="display: inline;">
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow style="color: black; display: inline;">
+
+            <ul class="uk-slideshow-items">
+                <li>
+                    <img src="http://jpcamara.com/wp-content/uploads/2015/02/carousel.jpg" alt="" uk-cover>
+                </li>
+                <li>
+                    <img src="images/dark.jpg" alt="" uk-cover>
+                </li>
+                <li>
+                    <img src="images/light.jpg" alt="" uk-cover>
+                </li>
+            </ul>
+        
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+        </div>
+    </div>
+
+
 <router-outlet></router-outlet>
