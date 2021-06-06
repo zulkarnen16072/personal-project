@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -10,13 +10,13 @@ import { ShopComponent } from '../shop/shop.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
-  @ViewChild(ShopComponent) shopReferences;
+  
 
   isHome: boolean;
   user: any = {};
-  isUser = this.fbService.isAppToken();
+  isUser: boolean;
 
   
 
@@ -33,14 +33,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
     
      this.auth.user.subscribe(res => {this.user = res});
      alert(this.fbService.isAppToken())
+
+     this.isUser = this.fbService.isAppToken();
      
     }
 
-    ngAfterViewInit() {
-      this.isHome = this.shopReferences.isHome;
-    }
-
-    
+ 
 
     sign()
     {
@@ -49,6 +47,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         if ( confirm('Yakin ?') )
         {
           this.fbService.signOut();
+          this.isUser = false;
         }
         
       } else {

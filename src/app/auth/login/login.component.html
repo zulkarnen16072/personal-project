@@ -30,7 +30,7 @@
           <button mat-button [disabled]="true" routerLink="/forgot">Forgot</button>
         </div>
         <button mat-raised-button color="primary" (click)="login()">
-          LOGIN
+          {{ !isLoading ? 'Login' : 'Please Wait' }}
         </button>
       </div>
 

@@ -35,7 +35,19 @@ export class ApiService {
   signOut()
   {
     localStorage.removeItem('appToken');
-    this.router.navigate(['login'])
+    // this.router.navigate(['/home']);
+  }
+
+
+  uploadImage(id, data)
+  {
+    return this.db.collection("test").doc(id).update({
+      url: data
+    }).then( res => {
+      console.log("Berhasil", res);
+    } ).catch(err => {
+      console.error("error", err);
+    })
   }
   
   

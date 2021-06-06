@@ -22,13 +22,14 @@ export class ProductComponent implements OnInit {
 
   constructor( 
     public dialog: MatDialog,
-    public api: ApiService,
+    public fbService: ApiService,
     public db: AngularFirestore, 
     public auth: AngularFireAuth
    ) { }
 
   ngOnInit(): void {
     this.test();
+    console.log(this.products)
     // this.simpleQuery();
     // console.log(this.api.get());
     // this.getProducts();
@@ -122,6 +123,12 @@ test()
   exportComponent()
   {
     return console.log("Test");
+  }
+
+  getDataSelected(idx)
+  {
+    var idProduct = this.products[idx].id;
+    this.fbService.uploadImage(idProduct, "www.google.com");
   }
 
 

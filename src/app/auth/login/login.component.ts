@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   hide: boolean = true;
   user: any = {};
-  loading: boolean;
+  isLoading: boolean;
 
   public cekUser = this.auth.user;
   
@@ -34,15 +34,16 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    this.loading = true;
+    this.isLoading = true;
     this.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(res => {
       alert("Login Success !");
       this.cekUser.subscribe(user => {
         localStorage.setItem("appToken", user.uid) // set app token to local storage
       })
-      this.router.navigate(['admin/dashboard']);
+      // this.router.navigate(['admin/dashboard']);
+      this.isLoading = false;
     }).catch(error => {
-      this.loading = false;
+      this.isLoading = false;
       alert("Tidak Dapat Login" + error);
     })
   }
