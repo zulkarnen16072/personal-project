@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators'; 
 
@@ -17,6 +18,8 @@ export class ImageUploaderComponent implements OnInit {
   snapshot: Observable<any>;
 
   constructor(
+    public dialogRef: MatDialogRef<ImageUploaderComponent>,
+    @Inject (MAT_DIALOG_DATA) public data: any,
     public storage: AngularFireStorage,
     public db: AngularFirestore,
 
@@ -57,19 +60,14 @@ export class ImageUploaderComponent implements OnInit {
         finalize ( () => { fileRef.getDownloadURL().subscribe(
           res => {this.downloadURL = res;
             
-            this.db.collection('test').doc('1622853558055').update({
+            this.db.collection('test').doc(this.data.id).update({ // update / simpan data download file ke database.
               url: this.downloadURL
             }).then(res => console.log('Berhasil' + res))
               .catch(e => console.error('Error' + e))
-          
-          
-          });
-          
-          
-
+           });     
         })
      )
-    .subscribe()
+    .subscribe(res => { console.log(res) })
   
     console.log('DownFile: ' + this.downFile);
     console.log('DownloadURL: ' + this.downloadURL);
