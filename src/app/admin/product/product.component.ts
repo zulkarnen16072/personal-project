@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api.service';
+import { ImageUploaderComponent } from '../image-uploader/image-uploader.component';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
@@ -125,12 +126,18 @@ test()
     return console.log("Test");
   }
 
-  getDataSelected(idx)
+  // getDataSelected(idx)
+  // {
+  //   var idProduct = this.products[idx].id;
+  //   this.fbService.uploadImage(idProduct, "www.google.com");
+  // }
+
+  uploadImage(data) 
   {
-    var idProduct = this.products[idx].id;
-    this.fbService.uploadImage(idProduct, "www.google.com");
+    let dialog = this.dialog.open(ImageUploaderComponent, {
+      width: '400px',
+      data: data
+    })
   }
-
-
- 
+  
 }

@@ -14,6 +14,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { ApiService } from './services/api.service';
 
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 const routes: Routes = [
   {
     path: '',
@@ -50,6 +52,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ApiService],

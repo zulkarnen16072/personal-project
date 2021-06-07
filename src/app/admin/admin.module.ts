@@ -7,6 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { MaterialDesign } from 'src/Material/material';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FormsModule } from '@angular/forms';
+import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     AdminComponent,
     DashboardComponent, 
     ProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ImageUploaderComponent
 
   ],
   imports: [
