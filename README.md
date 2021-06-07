@@ -1,27 +1,55 @@
-# ProjectTekweb
+# PersonalProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+># **[Wiki Page](https://github.com/zulkarnen16072/personal-project/wiki)**
 
-## Development server
+# Low Fidelity Prototype
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Login Page
 
-## Code scaffolding
+![image](https://user-images.githubusercontent.com/70864247/120080385-da260a00-c0e2-11eb-83b1-6af66d7ceccf.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Register Page
+![image](https://user-images.githubusercontent.com/70864247/120102765-d5ab3100-c176-11eb-8914-7665f85a22a2.png)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Public User (Home)
 
-## Running unit tests
+![home](https://user-images.githubusercontent.com/70864247/120080324-86b3bc00-c0e2-11eb-9612-486225e1c1f1.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Dashboard
+![image](https://user-images.githubusercontent.com/70864247/120092681-16875380-c13f-11eb-99fe-cf8a409209ba.png)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Product
+![image](https://user-images.githubusercontent.com/70864247/120090601-0f0b7e80-c12e-11eb-9e8f-046a9219f28a.png)
 
-## Further help
+## Add Product
+![image](https://user-images.githubusercontent.com/70864247/120090639-4a0db200-c12e-11eb-98e7-c3314a86263a.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+___
+
+# Road Map
+
+
+## Week 1
+
+> Membuat Arsitektur <br>
+> Routing
+
+## Week 2
+> Membuat View Page Login
+
+## week 3
+> Membuat View Dashboard untuk Admin
+
+## week 4
+> Membuat View Home untuk User
+
+## week 5
+> Mengelola Data Model 
+
+## week 6
+> Testing
+
+## week 7
+> Deployment
