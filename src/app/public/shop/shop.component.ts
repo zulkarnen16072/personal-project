@@ -13,7 +13,6 @@ export class ShopComponent implements OnInit {
 
   isHome: boolean = false;
 
-
   
   products: any = [];
   isUser: boolean;
@@ -37,6 +36,13 @@ export class ShopComponent implements OnInit {
      this.products = res;
    });
   }
+
+  query()
+  {
+    this.service.query('tshirt').valueChanges().subscribe(res => {this.products = res; console.log(this.products)});
+  }
+
+  
 
  
 

@@ -49,6 +49,13 @@ export class ApiService {
       console.error("error", err);
     })
   }
+
+  query(where)
+  {
+   return this.db.collection('test', ref => 
+     ref.where('category', '==', where)
+   )
+  }
   
   
 }
