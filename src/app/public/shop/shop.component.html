@@ -1,19 +1,43 @@
-<mat-sidenav-container class="example-container">
+<mat-sidenav-container class="example-container uk-padding-small uk-margin-right ">
     <mat-sidenav #sidenav mode="side" [position]="'start'" opened class="sidenav-left"
-    [fixedInViewport]="true" [fixedTopGap]="65"
+    [fixedInViewport]="true" [fixedTopGap]="5"
     [fixedBottomGap]="0">
 
+
+    <mat-list class="uk-margin-left">
+        <mat-list-item style="font-weight: bold;" class="uk-margin-large-top">T-Shirt</mat-list-item>
+    </mat-list>
+    
     <mat-nav-list>
-       
-    <mat-list-item routerLink='/admin/dashboard' disable>
-        <mat-icon matListIcon>dashboard</mat-icon>
-        <h3 matLine>Dashboard</h3>
-    </mat-list-item>
-    <mat-list-item routerLink='/admin/product' disabled>
-        <mat-icon matListIcon>local_mall</mat-icon>
-        <h3 matLine>Product</h3>
-    </mat-list-item>
+        <mat-list-item>
+            <a align="right" matLine href="/admin/dashboard">All T-shirt</a>
+        </mat-list-item>
+        <mat-list-item>
+            <a align="right" matLine href="/admin/dashboard">Short Sleeves</a>
+        </mat-list-item>
+        <mat-list-item>
+            <a align="right" matLine href="#">Long Sleeves</a>
+        </mat-list-item>
     </mat-nav-list>
+
+    <mat-list class="uk-margin-left">
+        <mat-list-item style="font-weight: bold;" class="uk-margin-top">Pants</mat-list-item>
+    </mat-list>
+
+    <mat-nav-list>
+        <mat-list-item>
+            <a align="right" matLine href="/admin/dashboard">All Pants</a>
+        </mat-list-item>
+        <mat-list-item>
+            <a align="right" matLine href="/admin/dashboard">Short Pants</a>
+        </mat-list-item>
+        <mat-list-item>
+            <a align="right" matLine href="#">Long Pants</a>
+        </mat-list-item>
+    </mat-nav-list>
+
+
+
 </mat-sidenav>
 
 <mat-sidenav #sidenav mode='side' [position]="'end'"  class="example-sidenav"
@@ -22,7 +46,7 @@
 </mat-sidenav>
 
     <!--sidenav content-->
-    <mat-sidenav-content style="padding: 20px; background-color: #fff;">
+    <mat-sidenav-content style="padding:10px; background-color: #fff;">
         <!--halaman-halaman tampil disini-->
         <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
             <div *ngFor="let product of products">

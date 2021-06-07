@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   user: any = {};
   isUser: boolean;
 
+  products: any = [];
+
   
 
   constructor(
@@ -28,16 +30,23 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.fbService.get()
+      .subscribe(res => {
+        this.products = res; console.log(this.products);
+      }, e => console.error("Error " + e))
 
     this.isHome = true;
-    
+
      this.auth.user.subscribe(res => {this.user = res});
      alert(this.fbService.isAppToken())
 
      this.isUser = this.fbService.isAppToken();
-     
+
+    
+    
     }
 
+   
  
 
     sign()
