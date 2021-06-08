@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       alert("Login Success !");
       this.cekUser.subscribe(user => {
         localStorage.setItem("appToken", user.uid) // set app token to local storage
+        this.router.navigate(['admin/dashboard'])
       })
       // this.router.navigate(['admin/dashboard']);
       this.isLoading = false;

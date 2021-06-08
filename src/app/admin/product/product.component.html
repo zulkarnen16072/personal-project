@@ -36,11 +36,11 @@
                 <td>{{ product.category }}</td>
                 <!-- <td>{{ product.size }}</td> -->
                 <td>{{ product.desc }}</td>
-                <td><img src="" alt="Product Image">{{ !product.url ? 'Tidak ada' : 'Ada'  }}</td>              
+                <td><img src="{{ product.url }}" style="width: 100px;">{{ product.url ? '' : 'Gambar Belum Ada' }}</td>              
                 <td align="right">
                     <button mat-button color="primary" (click)="uploadImage(product, idx)">Upload</button>
                     <button mat-button color="primary" (click)="productDetail(product, idx)">Edit</button>
-                    <button mat-button color="warn" (click)="deleteProduct(product.id, idx)">Hapus</button>
+                    <button mat-button color="warn" (click)="deleteProduct(product.id)">Hapus</button>
                 </td>
             </tr>
         </tbody>

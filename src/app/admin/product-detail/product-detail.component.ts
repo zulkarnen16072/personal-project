@@ -39,7 +39,7 @@ export class ProductDetailComponent implements OnInit {
     {
       let doc = new Date().getTime().toString();
       this.data.uid = this.userData.uid;
-      this.db.collection('test').doc(doc).set(this.data).then(res => {
+      this.db.collection('products').doc(doc).set(this.data).then(res => {
         alert("Document successfully written!");
         this.dialogRef.close(this.data);
       }).catch(error => {
@@ -48,7 +48,7 @@ export class ProductDetailComponent implements OnInit {
       })
    } else
    {
-     this.db.collection('test').doc(this.data.id).update(this.data).then(res => {
+     this.db.collection('products').doc(this.data.id).update(this.data).then(res => {
        alert("Data has Modified !")
        this.dialogRef.close();
      }).catch(error => {

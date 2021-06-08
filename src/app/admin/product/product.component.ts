@@ -29,29 +29,25 @@ export class ProductComponent implements OnInit {
    ) { }
 
   ngOnInit(): void {
-    this.test();
+    this.getProduct();
     console.log(this.products)
-    // this.simpleQuery();
-    // console.log(this.api.get());
-    // this.getProducts();
       this.auth.user.subscribe(res => {
       this.userData = res;
       console.log("User.auth.uid: From product.ts UserData.UID : " + this.userData.uid)
-      // this.getBooksFire();
     })
   } // edn onInit
 
   title: String = 'Product';
 
-  getProducts()
-{
-  this.products = [
-    {name: 'Hydrogen', price: 1.0079, kategori: 'Test', desc: 'baju', size: 'H'},
-    {name: 'Helium', price: 4.0026, desc: 'baju', size: 'He'},
-    {name: 'Lithium', price: 6.941, desc: 'baju', size: 'Li'},
-    {name: 'Beryllium', price: 9.0122, desc: 'baju', size: 'Be'}
-  ];
-}
+//   getProducts()
+// {
+//   this.products = [
+//     {name: 'Hydrogen', price: 1.0079, kategori: 'product', desc: 'baju', size: 'H'},
+//     {name: 'Helium', price: 4.0026, desc: 'baju', size: 'He'},
+//     {name: 'Lithium', price: 6.941, desc: 'baju', size: 'Li'},
+//     {name: 'Beryllium', price: 9.0122, desc: 'baju', size: 'Be'}
+//   ];
+// }
 
 productDetail(data, idx)
 {
@@ -68,23 +64,23 @@ productDetail(data, idx)
   })
 } // end productDetail()
 
-deleteProduct(id, idx) 
+deleteProduct(id) 
 {
   var conf = confirm('Delete Product? ');
   if (conf) 
   {
     console.log(id)
-    this.db.collection("test").doc(id).delete().then(res => {
-      this.products.splice(idx, 1);
-    }).catch(res => {
-      alert("Tidak dapat Hapus")
+    this.db.collection("products").doc(id).delete().then(res => {
+      alert("Berhasil" + res);
+    }).catch(e => {
+      alert("Tidak dapat Hapus" + e)
     })
   }
 }
 
 getBooksFire() {
   // get Data Using Firebase;
-  this.db.collection('test', ref => {
+  this.db.collection('products', ref => {
     this.isLoading = true;
     console.log("Loadings..." + this.userData.uid);
     return ref.where('uid', '==', this.userData.uid);
@@ -98,12 +94,16 @@ getBooksFire() {
   })
 }
 
-test()
+getProduct()
 {
-  this.db.collection("test").valueChanges({idField : 'id'}).subscribe(res => {
+  this.isLoading = true;
+  this.db.collection("products").valueChanges({idField : 'id'}).subscribe(res => {
     console.log(res);
     this.products = res;
+    this.isLoading = false;
+    console.log(res);
     }, error => {
+      this.isLoading = false;
     console.log(error)
   });
 
@@ -112,7 +112,7 @@ test()
 
   simpleQuery()
   {
-    this.db.collection('test', ref => 
+    this.db.collection('products', ref => 
       ref.where('kategori', '==', 'tees')).valueChanges({idField : 'id'}).subscribe(res => { 
         console.log(res[0].id);
         this.products = res;
@@ -123,7 +123,7 @@ test()
   
   exportComponent()
   {
-    return console.log("Test");
+    return console.log("product");
   }
 
   // getDataSelected(idx)
@@ -134,7 +134,7 @@ test()
 
   uploadImage(data) 
   {
-    let dialog = this.dialog.open(ImageUploaderComponent, {
+    this.dialog.open(ImageUploaderComponent, {
       width: '400px',
       data: data
     })

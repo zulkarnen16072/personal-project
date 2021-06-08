@@ -12,6 +12,7 @@ export class ShopComponent implements OnInit {
  
 
   isHome: boolean = false;
+  public isGetData: boolean;
 
   
   products: any = [];
@@ -37,9 +38,18 @@ export class ShopComponent implements OnInit {
    });
   }
 
-  query()
+  query(where)
   {
-    this.service.query('tshirt').valueChanges().subscribe(res => {this.products = res; console.log(this.products)});
+    this.service.query(where).valueChanges().subscribe(res => 
+      {
+        this.isGetData = true;
+        this.products = res;
+        console.log(this.products)
+        this.isGetData = false;
+      }, e => {
+        this.isGetData = false;
+        alert("Error " + e)
+      });
   }
 
   

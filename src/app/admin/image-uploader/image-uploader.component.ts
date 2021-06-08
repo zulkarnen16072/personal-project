@@ -17,6 +17,8 @@ export class ImageUploaderComponent implements OnInit {
   downloadURL: Observable<string>;
   snapshot: Observable<any>;
 
+  isUploading: boolean;
+
   constructor(
     public dialogRef: MatDialogRef<ImageUploaderComponent>,
     @Inject (MAT_DIALOG_DATA) public data: any,
@@ -49,28 +51,36 @@ export class ImageUploaderComponent implements OnInit {
     let timestamp = Date.now();
     var uniqueSafeName = timestamp + '_' + safeName;
     var path = 'images/' + uniqueSafeName;
+    this.isUploading = true;
     var fileRef = this.storage.ref(path);
     var task = this.storage.upload(path, this.selectedItem);
 
     // observe percentage changes
     this.uploadPercent = task.percentageChanges();
-      
-      // get notified when the download URL is available  
+    
+            // get notified when the download URL is available  
       task.snapshotChanges().pipe(
         finalize ( () => { fileRef.getDownloadURL().subscribe(
           res => {this.downloadURL = res;
-            
-            this.db.collection('test').doc(this.data.id).update({ // update / simpan data download file ke database.
+
+            this.db.collection('products').doc(this.data.id).update({ // update / simpan data download file ke database.
               url: this.downloadURL
-            }).then(res => console.log('Berhasil' + res))
-              .catch(e => console.error('Error' + e))
+            }).then(res => {
+              this.isUploading = false;
+              this.dialogRef.close()
+              console.log('Berhasil' + res)
+            })
+              
+            
+              .catch(e => {
+                this.isUploading = false;  
+                console.error('Error' + e)})
            });     
         })
      )
-    .subscribe(res => { console.log(res) })
+    .subscribe(res => { console.log(res);  })
   
-    console.log('DownFile: ' + this.downFile);
-    console.log('DownloadURL: ' + this.downloadURL);
+
 
     
     

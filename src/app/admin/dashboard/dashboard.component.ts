@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { ApiService } from 'src/app/services/api.service';
+import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,12 +13,20 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
 
+
+  public products = [];
+
   public title: any = "Dashboard"
 
-  constructor() { }
+  constructor(
+    public fbService: ApiService
+  ) { }
 
   ngOnInit(): void {
 
+   this.fbService.get().subscribe(res => this.products = res);
+
+    console.log(this.products)
     
   }
 

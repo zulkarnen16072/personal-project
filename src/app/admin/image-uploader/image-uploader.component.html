@@ -3,7 +3,6 @@
     <input type="file" id="file" (change)="onFileChange($event)">
 </div>
 <div mat-dialog-action align="right">
-	<button mat-button mat-dialog-close>Cancle</button>
-	<button mat-flat-button color="primary" (click)="uploadFile()">Upload</button>
+	<button mat-button mat-dialog-close>Cancel</button>
+	<button mat-flat-button color="primary" (click)="uploadFile()" [disabled]="isUploading">{{ !isUploading ? 'Upload' : 'Uploading...' }}</button>
 </div>
-<span>{{ downloadURL }}</span>

@@ -18,10 +18,10 @@
 
   <mat-sidenav-container class="example-container">
         <mat-sidenav #sidenav mode="{{mode}}" [position]="'start'" opened class="sidenav-left"
-        [fixedInViewport]="true" [fixedTopGap]="65"
+        [fixedInViewport]="true" [fixedTopGap] = "65"
         [fixedBottomGap]="0">
 
-        <mat-nav-list>
+        <mat-nav-list class="uk-margin-top">
         <mat-list-item routerLink='/admin/dashboard'>
             <mat-icon matListIcon>dashboard</mat-icon>
             <h3 matLine>Dashboard</h3>

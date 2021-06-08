@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
     this.isHome = true;
 
      this.auth.user.subscribe(res => {this.user = res});
-     alert(this.fbService.isAppToken())
 
      this.isUser = this.fbService.isAppToken();
 
@@ -53,14 +52,14 @@ export class HomeComponent implements OnInit {
     {
       if (this.isUser)
       {
-        if ( confirm('Yakin ?') )
+        if ( confirm('Yakin untuk Keluar?') )
         {
           this.fbService.signOut();
           this.isUser = false;
+          this.router.navigate(['/login'])
         }
         
       } else {
-        alert("Sign In")
         this.router.navigate(['login'])
       }
     }

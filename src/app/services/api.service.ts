@@ -10,13 +10,13 @@ export class ApiService {
 
   constructor(
     public db: AngularFirestore,
-    private router: Router
+    public router: Router
   ) { }
 
   
   get()
   {
-     return this.db.collection('test')
+     return this.db.collection('products')
     .valueChanges({ idField : 'id' })
   }
 
@@ -41,7 +41,7 @@ export class ApiService {
 
   uploadImage(id, data)
   {
-    return this.db.collection("test").doc(id).update({
+    return this.db.collection("products").doc(id).update({
       url: data
     }).then( res => {
       console.log("Berhasil", res);
@@ -52,7 +52,7 @@ export class ApiService {
 
   query(where)
   {
-   return this.db.collection('test', ref => 
+   return this.db.collection('products', ref => 
      ref.where('category', '==', where)
    )
   }
