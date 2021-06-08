@@ -1,8 +1,8 @@
 
 <mat-toolbar color="primary" class="example-header" uk-navbar>
-        <span class="uk-margin-large-left">Test</span>
+        <span class="uk-margin-large-left"><img id="logo" src="../../../assets/img/logo_wht.png" alt="" color="primary"></span>
         <div class="uk-width-expand"></div>
-        <button mat-button class="example-icon uk-margin-large-right" routerLink="/home/shop">Shop</button>
+        <button mat-button class="example-icon uk-margin-large-right" matLine routerLink="/home/shop">Shop</button>
         <button mat-icon-button class="example-icon uk-margin-large-right" (click)="sign()">
             <mat-icon class="material-icons-outlined">{{ !isUser ? 'person_outline': 'person' }}</mat-icon>
             <span class="uk-margin-small-left">{{ isUser ? 'Sign Out' : "Sign In" }}</span>
@@ -14,10 +14,10 @@
 
             <ul class="uk-slideshow-items">
                 <li>
-                    <img src="http://jpcamara.com/wp-content/uploads/2015/02/carousel.jpg" alt="" uk-cover>
+                    <img src="../../../assets/img/banner/banner-women-men.jpg" alt="" uk-cover>
                 </li>
                 <li>
-                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-project-tekweb.appspot.com/o/banner%2Ftest-banner-2.jpg?alt=media&token=a9bddd48-e798-47ac-98b6-b48e26cec093" alt="" uk-cover>
+                    <img src="../../../assets/img/banner/banner-women-tshirt-white.jpg" alt="" uk-cover>
                 </li>
                 <li>
                     <img src="http://jpcamara.com/wp-content/uploads/2015/02/carousel.jpg" alt="" uk-cover>

@@ -7,17 +7,17 @@
         <input matInput [(ngModel)]=data.name>
     </mat-form-field>
     <!-- <mat-form-field appearance="fill" style="width: 100%;"> -->
-        <div style="margin-bottom: 25px; width: 100%;" >
+        <mat-form-field appearance="fill" style="width: 100%;">
             <mat-label>Category</mat-label>
-            <mat-radio-group [(ngModel)]="data.category">
-              <mat-radio-button value="tshirt">T-Shirt</mat-radio-button>
-              <mat-radio-button value="pants">Pants</mat-radio-button>
-              <mat-radio-button value="hoodie">Hoodie</mat-radio-button>
-            </mat-radio-group>
-          </div>
+            <mat-select [(ngModel)]="data.category">
+                <mat-option value="tshirt">T-Shirt</mat-option>
+                <mat-option value="pants">Pants</mat-option>
+                <mat-option value="hoodie">Hoddie</mat-option>
+            </mat-select>
+        </mat-form-field>
     <!-- </mat-form-field> -->
 
-    <mat-form-field appearance="fill" style="width: 100%;">
+    <!-- <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Select</mat-label>
         <mat-select [(ngModel)]="data.size">
           <mat-option value="S">S</mat-option>
@@ -25,7 +25,7 @@
           <mat-option value="L">L</mat-option>
           <mat-option value="XL">XL</mat-option>
         </mat-select>
-      </mat-form-field>
+      </mat-form-field> -->
     <mat-form-field appearance="fill" style="width: 100%;">
         <mat-label>Description</mat-label>
         <textarea matInput [(ngModel)]=data.desc></textarea>
