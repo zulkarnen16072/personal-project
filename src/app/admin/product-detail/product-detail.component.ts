@@ -50,7 +50,7 @@ export class ProductDetailComponent implements OnInit {
    {
      this.db.collection('test').doc(this.data.id).update(this.data).then(res => {
        alert("Data has Modified !")
-       this.dialogRef.close(this.data);
+       this.dialogRef.close();
      }).catch(error => {
        alert("Tidak dapat update Data " + error)
      })
