@@ -3,15 +3,18 @@
     [fixedInViewport]="true" [fixedTopGap]="65"
     [fixedBottomGap]="0">
 
+    <mat-nav-list class="uk-margin-medium-top">
+        <mat-list-item (click)="getData()">
+            <a align="right" matLine>All Products</a>
+        </mat-list-item>
+    </mat-nav-list>
 
-    <mat-list class="uk-margin-left">
-        <mat-list-item style="font-weight: bold;" class="uk-margin-large-top">Top</mat-list-item>
+    <mat-list align="left">
+        <mat-list-item style="font-weight: bold;">Top</mat-list-item>
     </mat-list>
     
     <mat-nav-list>
-        <mat-list-item (click)="getData()">
-            <a align="right" matLine>All</a>
-        </mat-list-item>
+
         <mat-list-item  (click)="query('tshirt')">
             <a align="right" matLine>T-shirt</a>
         </mat-list-item>
@@ -20,7 +23,7 @@
         </mat-list-item>
     </mat-nav-list>
 
-    <mat-list class="uk-margin-left">
+    <mat-list align="left">
         <mat-list-item style="font-weight: bold;" class="uk-margin-top">Bottom</mat-list-item>
     </mat-list>
 
