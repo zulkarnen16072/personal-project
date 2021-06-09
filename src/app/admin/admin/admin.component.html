@@ -6,14 +6,15 @@
 
     
     <div class="uk-width-expand"></div>
-
-    <button mat-icon-button class="example-icon favorite-icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" (click)="logout()">
-      Logout
-    </button>
     
+    <div  (click)="sign()" class="uk-margin-medium-left">
+      <button mat-icon-button class="example-icon favorite-icon uk-margin-medium-left">
+        <mat-icon>{{ !isUser ? 'person_outline': 'person' }}</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon">
+        {{ isUser ? 'Log out': 'Sign In' }}
+      </button>  
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-container">

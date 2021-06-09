@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
@@ -10,7 +11,8 @@ export class ApiService {
 
   constructor(
     public db: AngularFirestore,
-    public router: Router
+    public router: Router,
+    public auth: AngularFireAuth
   ) { }
 
   
@@ -35,6 +37,7 @@ export class ApiService {
   signOut()
   {
     localStorage.removeItem('appToken');
+    this.auth.signOut();
     // this.router.navigate(['/home']);
   }
 
