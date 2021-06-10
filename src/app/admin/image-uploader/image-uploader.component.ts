@@ -71,7 +71,6 @@ export class ImageUploaderComponent implements OnInit {
               console.log('Berhasil' + res)
             })
               
-            
               .catch(e => {
                 this.isUploading = false;  
                 console.error('Error' + e)})
