@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
 
 
   public products = [];
+  public user: any;
 
   public title: any = "Dashboard"
 
@@ -30,9 +31,12 @@ export class DashboardComponent implements OnInit {
 
    this.fbService.get().subscribe(res => this.products = res);
 
-   this.db.collection('users').doc().get().subscribe(res => console.log(res));
+    console.log(this.products);
 
-    console.log(this.products)
+    this.auth.user.subscribe(res => {
+      console.log(res);
+      this.user = res;
+    }, e => console.error(e));
     
   }
 
