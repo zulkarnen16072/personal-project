@@ -3,5 +3,17 @@ mat-label, h3, input, mat-form-field, button, mat-card-content {
 }
 
 mat-card-content, mat-card {
-    background-color: rgb(29, 29, 29);
+    background-color: black;
+}
+
+mat-card, button, .mat-stroked-button{
+    border: solid white 1px;
+}
+
+input {
+    border-bottom: solid white 1px;
+}
+
+h3 {
+    color: white;
 }

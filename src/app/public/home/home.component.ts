@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 import { ApiService } from 'src/app/services/api.service';
-import { ShopComponent } from '../shop/shop.component';
+
 
 @Component({
   selector: 'app-home',
@@ -25,8 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(
     public router: Router,
     public auth: AngularFireAuth,
-    public fbService: ApiService, 
-    
+    public fbService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -36,12 +35,10 @@ export class HomeComponent implements OnInit {
       }, e => console.error("Error " + e))
 
     this.isHome = true;
-
-     this.auth.user.subscribe(res => {this.user = res});
+   
+    this.auth.user.subscribe(res => {this.user = res});
 
      this.isUser = this.fbService.isAppToken();
-
-    
     
     }
 
