@@ -37,7 +37,15 @@ export class DashboardComponent implements OnInit {
       console.log(res);
       this.user = res;
     }, e => console.error(e));
+
+    this.today();
     
+  }
+
+  today()
+  {
+    let today = new Date();
+    console.log(today.getDate() + '-' + today.getMonth() + '-' +today.getFullYear())
   }
 
 

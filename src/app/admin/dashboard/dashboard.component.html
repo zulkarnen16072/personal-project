@@ -8,16 +8,16 @@
         <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
             <div>
                 <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                    <h1 class="uk-card-title">Jumlah Produk</h1>
+                    <h2 class="uk-card-title">Jumlah Produk</h2>
                     <h2>{{ products.length }}</h2>
                 </div>
             </div>
             
             <div>
                 <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light">
-                    <h1 class="uk-card-title">Administator</h1>
-                    <h2>Email {{ user.email }}</h2>
-                    <h2>Terdaftar {{ user.metadata.creationTime }}</h2>
+                    <h2 class="uk-card-title">Administator</h2>
+                    <h3>{{ user.email }}</h3>
+                    <h3><span class="uk-text-bolder">Bergabung pada </span> {{ user.metadata.creationTime }}</h3>
                 </div>
             </div>
         </div>

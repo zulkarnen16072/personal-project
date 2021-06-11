@@ -2,7 +2,7 @@
 <mat-toolbar class="example-header" uk-navbar>
         <span class="uk-margin-large-left"><img id="logo" src="https://firebasestorage.googleapis.com/v0/b/personal-project-tekweb.appspot.com/o/logo%2Flogo_wht.png?alt=media&token=f372cf9b-a07f-405a-b6d5-4373037994fb" alt="" color="primary"></span>
         <div class="uk-width-expand"></div>
-        <button mat-button class="example-icon uk-margin-large-right" matLine routerLink="/home/shop">Shop</button>
+        <button *ngIf="isHome" mat-button class="example-icon uk-margin-large-right" matLine routerLink="/home/shop">Shop</button>
         <button mat-icon-button class="example-icon uk-margin-large-right" (click)="sign()">
             <mat-icon class="material-icons-outlined">{{ !isUser ? 'person_outline': 'person' }}</mat-icon>
             <span class="uk-margin-small-left">{{ isUser ? 'Sign Out' : "Sign In" }}</span>
