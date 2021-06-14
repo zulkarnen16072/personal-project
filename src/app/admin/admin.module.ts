@@ -8,6 +8,7 @@ import { MaterialDesign } from 'src/Material/material';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
+import { DialogConfirmComponent } from './dialog-confirm/dialog-confirm.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
     DashboardComponent, 
     ProductComponent,
     ProductDetailComponent,
-    ImageUploaderComponent
+    ImageUploaderComponent,
+    DialogConfirmComponent
 
   ],
   imports: [
