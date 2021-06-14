@@ -7,7 +7,7 @@
     
     <div class="uk-width-expand"></div>
     
-    <div  (click)="sign()" class="uk-margin-medium-right">
+    <div matTooltip="{{ isUser ?  dataUser.email : 'Sign In' }}" (click)="sign()" class="uk-margin-medium-right">
       <button mat-icon-button class="example-icon favorite-icon uk-margin-medium-left">
         <mat-icon>{{ !isUser ? 'person_outline': 'person' }}</mat-icon>
       </button>
@@ -15,6 +15,7 @@
         {{ isUser ? 'Sign out': 'Sign In' }}
       </button>  
     </div>
+
   </mat-toolbar>
 
   <mat-sidenav-container class="example-container">

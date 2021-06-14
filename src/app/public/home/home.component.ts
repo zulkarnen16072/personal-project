@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogConfirmComponent } from 'src/app/admin/dialog-confirm/dialog-confirm.component';
 
 import { ApiService } from 'src/app/services/api.service';
 
@@ -25,7 +27,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public router: Router,
     public auth: AngularFireAuth,
-    public fbService: ApiService
+    public fbService: ApiService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -46,20 +49,32 @@ export class HomeComponent implements OnInit {
  
 
     sign()
+  {
+    if (this.isUser) // jika login
     {
-      if (this.isUser)
-      {
-        if ( confirm('Yakin untuk Keluar?') )
+      let dialog = this.dialog.open(DialogConfirmComponent, {
+        data: {
+          title: 'Sign Out',
+          message: 'Are you sure you want to Sign Out',
+          action: 'Sign Out'
+        },
+
+        width: '400px'
+
+      })
+
+      dialog.afterClosed().subscribe(res => {
+        if (res) 
         {
           this.fbService.signOut();
           this.isUser = false;
-          this.router.navigate(['/login'])
+          this.router.navigate(['/login']);
         }
-        
-      } else {
-        this.router.navigate(['login'])
-      }
-    }
+      })
+    } else { this.router.navigate(['login']) }
+    
+  
+  }
 
     
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   
   constructor(
     public router: Router,
-    public auth: AngularFireAuth
+    public auth: AngularFireAuth,
+    public fbService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
   {
     this.isLoading = true;
     this.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(res => {
-      alert("Login Success !");
+      this.fbService.notifcation('Login Berhasil', 'OK')
       this.cekUser.subscribe(user => {
         localStorage.setItem("appToken", user.uid) // set app token to local storage
         this.router.navigate(['admin/dashboard'])

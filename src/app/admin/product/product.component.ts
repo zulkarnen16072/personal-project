@@ -62,6 +62,14 @@ productDetail(data, idx)
 deleteProduct(product) 
 {
   let dialog = this.dialog.open(DialogConfirmComponent, {
+    data: 
+    {
+      title: 'Delete Product',
+      message: "Are you sure you want to delete this product ? ",
+      action: 'Delete'
+    },
+
+    width: '400px'
 
   });
 
@@ -69,8 +77,8 @@ deleteProduct(product)
     if (res) 
     {
       this.db.collection("products").doc(product.id).delete().then(res => {
+        this.fbService.deleteStorage(product.storagePath).delete().subscribe(res => {console.log(res)}, e => alert(e));
         this.fbService.notifcation("Berhasil", "OK");
-        this.fbService.deleteStorage(product.storagePath).delete().subscribe(res => {alert("berhasil" + res)}, e => alert(e))
       }).catch(e => {
         this.isDeleted = false;
         alert("Tidak dapat Hapus" + e)
