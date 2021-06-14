@@ -64,7 +64,8 @@ export class ImageUploaderComponent implements OnInit {
           res => {this.downloadURL = res;
 
             this.db.collection('products').doc(this.data.id).update({ // update / simpan data download file ke database.
-              url: this.downloadURL
+              url: this.downloadURL,
+              storagePath: path
             }).then(res => {
               this.isUploading = false;
               this.dialogRef.close()
@@ -83,7 +84,6 @@ export class ImageUploaderComponent implements OnInit {
 
     
     
-
 
   }
 

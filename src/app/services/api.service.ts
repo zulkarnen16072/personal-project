@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 
@@ -12,7 +14,9 @@ export class ApiService {
   constructor(
     public db: AngularFirestore,
     public router: Router,
-    public auth: AngularFireAuth
+    public auth: AngularFireAuth,
+    public snackBar: MatSnackBar,
+    public storage: AngularFireStorage
   ) { }
 
   
@@ -58,6 +62,19 @@ export class ApiService {
    return this.db.collection('products', ref => 
      ref.where('category', '==', where)
    )
+  }
+
+
+  notifcation(message, action)
+  {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    })
+  }
+
+  deleteStorage(path)
+  {
+    return this.storage.ref(path)
   }
   
   

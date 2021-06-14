@@ -37,19 +37,12 @@ export class ProductComponent implements OnInit {
       this.userData = res;
       console.log("User.auth.uid: From product.ts UserData.UID : " + this.userData.uid)
     })
+
+   
   } // edn onInit
 
   title: String = 'Product';
 
-//   getProducts()
-// {
-//   this.products = [
-//     {name: 'Hydrogen', price: 1.0079, kategori: 'product', desc: 'baju', size: 'H'},
-//     {name: 'Helium', price: 4.0026, desc: 'baju', size: 'He'},
-//     {name: 'Lithium', price: 6.941, desc: 'baju', size: 'Li'},
-//     {name: 'Beryllium', price: 9.0122, desc: 'baju', size: 'Be'}
-//   ];
-// }
 
 productDetail(data, idx)
 {
@@ -66,7 +59,7 @@ productDetail(data, idx)
   })
 } // end productDetail()
 
-deleteProduct(id) 
+deleteProduct(product) 
 {
   let dialog = this.dialog.open(DialogConfirmComponent, {
 
@@ -75,9 +68,9 @@ deleteProduct(id)
   dialog.afterClosed().subscribe(res => {
     if (res) 
     {
-      this.db.collection("products").doc(id).delete().then(res => {
-        this.isDeleted = true;
-        alert("Berhasil" + res);
+      this.db.collection("products").doc(product.id).delete().then(res => {
+        this.fbService.notifcation("Berhasil", "OK");
+        this.fbService.deleteStorage(product.storagePath).delete().subscribe(res => {alert("berhasil" + res)}, e => alert(e))
       }).catch(e => {
         this.isDeleted = false;
         alert("Tidak dapat Hapus" + e)
