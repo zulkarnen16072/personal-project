@@ -23,7 +23,6 @@
             <th>Name</th>
             <th>Price</th>
             <th>Kategori</th>
-            <!-- <th>Size</th> -->
             <th>Desc</th>
             <th>#</th>
         </thead>
@@ -40,7 +39,7 @@
                 <td align="right">
                     <button mat-button color="primary" (click)="uploadImage(product, idx)">Upload</button>
                     <button mat-button color="primary" (click)="productDetail(product, idx)">Edit</button>
-                    <button mat-button color="warn" (click)="deleteProduct(product.id)">Hapus</button>
+                    <button mat-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
                 </td>
             </tr>
         </tbody>

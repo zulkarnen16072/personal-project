@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api.service';
+import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 import { ImageUploaderComponent } from '../image-uploader/image-uploader.component';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
@@ -19,6 +20,7 @@ export class ProductComponent implements OnInit {
   products: any = [];
   userData: any= {};
   isLoading: boolean;
+  isDeleted: boolean = false;
 
 
   constructor( 
@@ -66,17 +68,26 @@ productDetail(data, idx)
 
 deleteProduct(id) 
 {
-  var conf = confirm('Delete Product? ');
-  if (conf) 
-  {
-    console.log(id)
-    this.db.collection("products").doc(id).delete().then(res => {
-      alert("Berhasil" + res);
-    }).catch(e => {
-      alert("Tidak dapat Hapus" + e)
-    })
-  }
+  let dialog = this.dialog.open(DialogConfirmComponent, {
+
+  });
+
+  dialog.afterClosed().subscribe(res => {
+    if (res) 
+    {
+      this.db.collection("products").doc(id).delete().then(res => {
+        this.isDeleted = true;
+        alert("Berhasil" + res);
+      }).catch(e => {
+        this.isDeleted = false;
+        alert("Tidak dapat Hapus" + e)
+      })
+    }
+    
+  })
+
 }
+
 
 getBooksFire() {
   // get Data Using Firebase;
