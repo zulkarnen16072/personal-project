@@ -14,3 +14,23 @@ input {
 h3 {
     color: white;
 }
+
+.noborder {
+    border: 0px;
+}
+// div {
+//     display: inline-block;
+// }
+
+
+#logo {
+    height: 100px;
+    width: 160px;
+    padding: 10px;
+}
+
+.example-header {
+    background-color: black;
+    color: white;
+    border-bottom: solid rgba(255, 255, 255, 0.226) 1px;
+}
