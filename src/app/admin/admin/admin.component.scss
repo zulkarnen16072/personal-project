@@ -1,3 +1,7 @@
+mat-toolbar {
+    background-color: black;
+    color: white;
+}
 #logo {
     height: 100px;
     width: 160px;
@@ -7,3 +11,11 @@
 .mat-drawer-container {
     background-color: #fff;
 }
+
+.example-container {
+    position: absolute;
+    top: 60px;
+    bottom: 20px;
+    left: 0;
+    right: -20px;
+  }
