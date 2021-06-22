@@ -1,8 +1,9 @@
 <mat-sidenav-container class="example-container uk-padding-small uk-margin-right ">
     <mat-sidenav #sidenav mode="side" [position]="'start'" opened class="sidenav-left"
-    [fixedInViewport]="true" [fixedTopGap]="65"
+    [fixedInViewport]="true" [fixedTopGap]="60"
     [fixedBottomGap]="0">
-
+    
+<div class="sidenav uk-width-small@l">
     <mat-nav-list class="uk-margin-medium-top">
         <mat-list-item (click)="getData()">
             <a align="right" matLine>All Products</a>
@@ -35,9 +36,7 @@
             <a align="right" matLine >Long Pants</a>
         </mat-list-item>
     </mat-nav-list>
-
-
-
+</div>
 </mat-sidenav>
 
 <mat-sidenav #sidenav mode='side' [position]="'end'"  class="example-sidenav"
@@ -78,26 +77,6 @@
                     
                 </div>
 
-
-                <!-- <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
-                    <div class="uk-card uk-card-default uk-card-hover uk-card-body">
-                        <h3 class="uk-card-title">Default</h3>
-                        <img src="https://www.maternaldisaster.com/wp-content/uploads/2021/05/dlaga-3-500x500.jpg" alt="Test" width="200px">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    </div>
-                </div> -->
-
-
-                <!-- <div class="uk-card uk-card-body">
-                    <h3 class="uk-card-title">Test</h3>
-                </div> -->
-
-                <!-- <div class="uk-card uk-card-default uk-card-body" style="min-width: 50%;">
-                    <img src="https://www.maternaldisaster.com/wp-content/uploads/2021/05/dlaga-3-500x500.jpg" alt="Test" width="200px">
-                    <h3 class="uk-card-title">{{ product.name }}</h3>
-                    <p>{{ product.desc }}</p>
-                    <h3>{{ product.price }}</h3>
-                </div> -->
             </div>
         <!-- </div> -->
     </mat-sidenav-content>
