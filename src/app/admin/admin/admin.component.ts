@@ -24,11 +24,23 @@ export class AdminComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.checkLogin();
     this.isUser = this.fbService.isAppToken();
     this.auth.user.subscribe(res => this.dataUser = res);
   }
 
   mode: any = 'side';
+
+  checkLogin()
+  {
+    let isLogin = this.fbService.isAppToken();
+    if (!isLogin)
+    {
+      this.fbService.notifcation('Gagal, Harus Login Terlebih Dahulu !', null);
+      this.router.navigate(['/login']);
+    }
+    
+  }
 
   sign()
   {

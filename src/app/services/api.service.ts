@@ -2,24 +2,25 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
+  verticalPosition: MatSnackBarVerticalPosition;
 
   constructor(
     public db: AngularFirestore,
     public router: Router,
     public auth: AngularFireAuth,
     public snackBar: MatSnackBar,
-    public storage: AngularFireStorage
+    public storage: AngularFireStorage,
   ) { }
 
-  
+  verticalPosi
   get()
   {
      return this.db.collection('products')
@@ -65,11 +66,12 @@ export class ApiService {
   }
 
 
-  notifcation(message, action)
+  notifcation(message, action = 'OK')
+ 
   {
     this.snackBar.open(message, action, {
-      duration: 3000,
-    })
+      duration: 3000
+     })
   }
 
   deleteStorage(path)

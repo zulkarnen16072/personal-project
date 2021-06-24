@@ -1,5 +1,5 @@
 <mat-toolbar class="example-header">
-    <button mat-icon-button class="example-icon uk-margin-medium-right" (click)="sidenav.toggle()">
+    <button mat-icon-button class="example-icon uk-margin-medium-right" (click)="sidenav.toggle()" matTooltip="menu">
       <mat-icon>menu</mat-icon>
     </button>
     <span><img id="logo" src="https://firebasestorage.googleapis.com/v0/b/personal-project-tekweb.appspot.com/o/logo%2Flogo_wht.png?alt=media&token=f372cf9b-a07f-405a-b6d5-4373037994fb" alt="logo-z"></span>
@@ -9,10 +9,10 @@
     
     <div matTooltip="{{ isUser ?  dataUser.email : 'Sign In' }}" (click)="sign()" class="uk-margin-medium-right">
       <button mat-icon-button class="example-icon favorite-icon uk-margin-medium-left">
-        <mat-icon>{{ !isUser ? 'person_outline': 'person' }}</mat-icon>
+        <mat-icon>{{ isUser ? 'person': '' }}</mat-icon>
       </button>
       <button mat-icon-button class="example-icon">
-        {{ isUser ? 'Sign out': 'Sign In' }}
+        {{ isUser ? 'Sign out': '' }}
       </button>  
     </div>
 
