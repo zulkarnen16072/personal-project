@@ -1,8 +1,15 @@
 <h1 mat-dialog-title >Upload Image</h1>
+
+<div class="uk-flex uk-flex-middle uk-flex-center uk-margin-bottom" style="height: 180px; outline: 2px dashed #ccc;" (click)="fileInput.click()">
+	<span *ngIf="!previewImg">Choose File</span>
+	<img src="{{ previewImg }}" style="height: 170px">	
+</div>
+
+
 <div mat-dialog-content>
-    <input type="file" id="file" (change)="onFileChange($event)">
+    <input type="file" id="file" (change)="onFileChange($event)" #fileInput style="display: none;">
 </div>
 <div mat-dialog-action align="right">
-	<button mat-button mat-dialog-close>Cancel</button>
+	<button mat-button mat-dialog-close class="uk-margin-right">Cancel</button>
 	<button mat-flat-button color="primary" (click)="uploadFile()" [disabled]="isUploading">{{ !isUploading ? 'Upload' : 'Uploading...' }}</button>
 </div>
