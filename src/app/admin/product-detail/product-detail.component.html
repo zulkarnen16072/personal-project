@@ -28,5 +28,5 @@
 </div>
 <div mat-dialog-action align="end">
     <button mat-button mat-dialog-close>Batal</button>
-    <button mat-flat-button (click)="save()" disabled="{{!isSave}}">Simpan</button>
+    <button mat-flat-button (click)="save()" [disabled]="isSave">Simpan</button>
 </div>
