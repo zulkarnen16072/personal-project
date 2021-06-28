@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
 
   userData: any = {};
   datas: any = [];
+  isSave: boolean;
 
   constructor(
     public dialogRef:MatDialogRef<ProductDetailComponent>,
@@ -39,21 +40,27 @@ export class ProductDetailComponent implements OnInit {
   {
     if (this.data.id == undefined)
     {
+      this.isSave = true;
       let doc = new Date().getTime().toString();
       this.data.uid = this.userData.uid;
       this.db.collection('products').doc(doc).set(this.data).then(res => {
         this.fbService.notifcation("Berhasil Menambahkan Produk", "OK");
         this.dialogRef.close(this.data);
+        this.isSave = false;
       }).catch(error => {
+        this.isSave = false;
         console.log(error);
         alert("Error" + error)
       })
    } else
    {
+     this.isSave = true;
      this.db.collection('products').doc(this.data.id).update(this.data).then(res => {
       this.fbService.notifcation("Produk Berhasil di Edit", "OK");
        this.dialogRef.close();
+       this.isSave = false;
      }).catch(error => {
+      this.isSave = false;
        alert("Tidak dapat update Data " + error)
      })
    }

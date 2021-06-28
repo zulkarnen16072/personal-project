@@ -1,11 +1,9 @@
-import { I18nPluralPipe } from '@angular/common';
-import { ReadVarExpr } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators'; 
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-image-uploader',
@@ -35,9 +33,7 @@ export class ImageUploaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
- 
-
-
+  
 
   selectedItem: any;
 
@@ -46,7 +42,7 @@ export class ImageUploaderComponent implements OnInit {
     if (event.target.files.length > 0) 
     {
       this.selectedItem = event.target.files[0];
-      // get url 
+      // get preview image 
       let reader = new FileReader();
       reader.onload = e => this.previewImg = reader.result
       reader.readAsDataURL(event.target.files[0])
@@ -54,14 +50,7 @@ export class ImageUploaderComponent implements OnInit {
     
   }
 
-  
-    
-    
- 
 
-  
-
-  downFile: any;
   uploadFile()
   {
     let safeName = this.selectedItem.name.replace(/[^a-z0-9.]+/gi, '').toLowerCase();
@@ -97,15 +86,7 @@ export class ImageUploaderComponent implements OnInit {
      )
     .subscribe(res => { console.log(res);  })
   
-
-
-    
-    
-
   }
-
-
-
 
 
 }
