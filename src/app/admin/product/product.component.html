@@ -31,7 +31,7 @@
             <tr *ngFor="let product of products; let idx = index">
                 <td>{{idx+1}}</td>
                 <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
+                <td>{{ formatRupiah(product.price) }}</td>
                 <td>{{ product.category }}</td>
                 <!-- <td>{{ product.size }}</td> -->
                 <td>{{ product.desc }}</td>

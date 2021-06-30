@@ -138,11 +138,6 @@ getProduct()
     return console.log("product");
   }
 
-  // getDataSelected(idx)
-  // {
-  //   var idProduct = this.products[idx].id;
-  //   this.fbService.uploadImage(idProduct, "www.google.com");
-  // }
 
   uploadImage(data) 
   {
@@ -150,6 +145,23 @@ getProduct()
       width: '400px',
       data: data
     })
+  }
+
+
+  formatRupiah(angka)
+  {
+    
+    var	number_string = angka.toString(),
+      sisa 	= number_string.length % 3,
+      rupiah 	= number_string.substr(0, sisa),
+      ribuan 	= number_string.substr(sisa).match(/\d{3}/g);
+        
+    if (ribuan) {
+      var separator = sisa ? '.' : '';
+      rupiah += separator + ribuan.join('.');
+    }
+    
+    return rupiah
   }
   
 }

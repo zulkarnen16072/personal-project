@@ -64,7 +64,7 @@ export class ShopComponent implements OnInit {
       var separator = sisa ? '.' : '';
       rupiah += separator + ribuan.join('.');
     }
-
+    
     return rupiah
   }
 
