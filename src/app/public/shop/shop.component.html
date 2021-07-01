@@ -64,7 +64,7 @@
 
                         <!-- <div class="uk-grid-smal" uk-grid> -->
                             <div>
-                                <img  width="270" height="270" src="{{ product.url }}">
+                                <img width="270" height="270" src="{{ !product.url ? 'https://firebasestorage.googleapis.com/v0/b/personal-project-tekweb.appspot.com/o/banner%2Fimage-comming-soon.png?alt=media&token=95ed4c9b-2bb9-4648-986b-ae0cf0892a78' : product.url }}">
                             </div>
                             <!-- <div class="uk-width-expand"> -->
                                 <h3 class="uk-card-title">{{ product.name }}</h3>
