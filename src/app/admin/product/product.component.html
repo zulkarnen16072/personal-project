@@ -37,7 +37,7 @@
                 <td>{{ product.desc }}</td>
                 <td><img src="{{ product.url }}" style="width: 100px;">{{ product.url ? '' : 'Gambar Belum Ada' }}</td>              
                 <td align="right">
-                    <button mat-button color="primary" (click)="uploadImage(product, idx)" matTooltip="upload image">Upload</button>
+                    <button mat-button color="primary" (click)="uploadImage(product, idx)" matTooltip="{{ product.url ? 'change image' : 'upload image'}}">{{ product.url ? 'Change' :'Upload' }}</button>
                     <button mat-button color="primary" (click)="productDetail(product, idx)">Edit</button>
                     <button mat-button color="warn" (click)="deleteProduct(product)">Delete</button>
                 </td>
