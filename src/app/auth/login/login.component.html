@@ -18,12 +18,12 @@
     <mat-card-content>
       <mat-form-field class="uk-width-1-1">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Your E-mail or Username" [(ngModel)]="user.email">
+        <input matInput placeholder="Your E-mail or Username" [(ngModel)]="user.email"  ng-keydown="testKeyDown($event)">
       </mat-form-field>
       <mat-form-field class="uk-width-1-1" >
         <mat-label>Password</mat-label>
         <input
-        [type]=" hide ? 'password' : 'text' " matInput placeholder="Your password" [(ngModel)]="user.password">
+        [type]=" hide ? 'password' : 'text' " matInput placeholder="Your password" [(ngModel)]="user.password" (keydown.enter)="login()">
           <button mat-icon-button matSuffix (click)=" hide = !hide ">
             <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
           </button>

@@ -34,14 +34,29 @@ export class LoginComponent implements OnInit {
 
   }
 
+  isAdmin(res) 
+  {
+    if (res === "LoqZ2D3AaeMjMeMjpOexDerWE6K2") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   login()
   {
     this.isLoading = true;
     this.auth.signInWithEmailAndPassword(this.user.email, this.user.password).then(res => {
       this.fbService.notifcation('Login Berhasil', 'OK')
+     
       this.cekUser.subscribe(user => {
+        if (this.isAdmin(user.uid)) {
+          this.router.navigate(['admin/dashboard'])
+        } else {
+          this.router.navigate(['home/shop'])
+        }
         localStorage.setItem("appToken", user.uid) // set app token to local storage
-        this.router.navigate(['admin/dashboard'])
+        
       })
       // this.router.navigate(['admin/dashboard']);
       this.isLoading = false;
@@ -49,6 +64,13 @@ export class LoginComponent implements OnInit {
       this.isLoading = false;
       alert("Tidak Dapat Login" + error);
     })
+  }
+
+  testKeyDown(ev)
+  {
+    if (ev.key === "Enter") {
+      alert("KeyDown")
+    }
   }
 
 

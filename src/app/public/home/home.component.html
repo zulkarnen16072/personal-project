@@ -1,7 +1,14 @@
 
 <mat-toolbar class="example-header" uk-navbar>
-        <span class="uk-margin-large-left"><img id="logo" src="https://firebasestorage.googleapis.com/v0/b/personal-project-tekweb.appspot.com/o/logo%2Flogo_wht.png?alt=media&token=f372cf9b-a07f-405a-b6d5-4373037994fb" alt="" color="primary"></span>
+
+    <span class="uk-margin-large-left"></span>
+
+    <button mat-button matLine>
+        <img id="logo" routerLink="/" src="https://firebasestorage.googleapis.com/v0/b/personal-project-tekweb.appspot.com/o/logo%2Flogo_wht.png?alt=media&token=f372cf9b-a07f-405a-b6d5-4373037994fb" alt="" color="primary">
+    </button>
+        
         <div class="uk-width-expand"></div>
+
         <button *ngIf="isHome" mat-button class="example-icon uk-margin-large-right" matLine routerLink="/home/shop">Shop</button>
         <div  matTooltip="{{ isUser ?  user.email : 'Sign In' }}" >
             <button mat-icon-button class="example-icon uk-margin-large-right" (click)="sign()">
